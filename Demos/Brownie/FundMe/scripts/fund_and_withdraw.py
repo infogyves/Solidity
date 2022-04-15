@@ -15,7 +15,7 @@ def fund():
 def withdraw():
     fund_me = FundMe[-1]
     account = get_account()
-    print("Withdrawing...")
+    print(f"Withdrawing from account {account}...")
     fund_me.simpleWithdraw({"from": account})
 
 
