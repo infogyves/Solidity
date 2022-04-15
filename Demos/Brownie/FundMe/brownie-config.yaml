@@ -1,0 +1,28 @@
+dependencies:
+  # This is where we tell Brownie the
+  # <organization/repo name@version>
+  # where we want it to download the chainlink contracts from
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+
+# Path to environment variables
+dotenv: .env
+# Price feeds
+networks:
+  default: development
+  rinkeby:
+    eth_usd_price_feeds: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  development:
+    verify: False
+  ganache-infogyves:
+    verify: False
+  mainnet-fork-dev:
+    eth_usd_price_feeds: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+# INFOGYVES Key
+wallets:
+  IG_key: ${INFOGYVES_KEY}
