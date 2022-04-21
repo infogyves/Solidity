@@ -1,7 +1,7 @@
 from brownie import accounts, config, network, SimpleCollectible
-from scrips.igx_library import get_account
+from scripts.igx_library import get_account
 
-igx_token_URI = "https://ipfs.io/ipfs/QmcskTWYwkijJ5spcoGadxQaMxJCsYk9ZZUFLSb2mWsCYw?filename=igx.png"
+igx_token_URI = "ipfs://QmcskTWYwkijJ5spcoGadxQaMxJCsYk9ZZUFLSb2mWsCYw"
 OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
 
 

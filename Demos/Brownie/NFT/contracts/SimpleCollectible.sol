@@ -1,18 +1,18 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.6.6;
 
-// import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+// import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract SimpleCollectible is ERC721URIStorage {
+contract SimpleCollectible is ERC721 {
     uint256 public tokenCounter;
 
-    constructor() public ERC721URIStorage("Infogyves", "IGX") {
+    constructor() public ERC721 ("Infogyves", "IGX") {
         tokenCounter = 0;
     }
 
-    function createCollectibe(string memory tokenURI) public returns (uint256) {
+    function createCollectible(string memory tokenURI) public returns (uint256) {
         uint256 newTokenID = tokenCounter;
         _safeMint(msg.sender, newTokenID);
         _setTokenURI(newTokenID, tokenURI);
