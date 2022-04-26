@@ -109,16 +109,16 @@ def upload_to_ipfs(_filepath):
         print(f"Image URI = {fileURI}")
 
 def upload_to_pinata(_filepath):
+    # Get PINATA API key and API secret key from .env
+    pinata_base_url = "https://api.pinata.cloud"
+    pinata_file_endpoint = "/pinning/pinFileToIPFS"
+    file_headers = {"pinata_api_key": os.getenv("PINATA_API_KEY"), "pinata_secret_api_key": os.getenv("PINATA_SECRET_API_KEY"),}
+    print(f"{file_headers}")
+    filename = _filepath.split("/")[-1:][0]
     with Path(_filepath).open("rb") as fpath:
         image_binary = fpath.read()
-        # Get PINATA API key and API secret key from .env
-        pinata_base_url = "https://app.pinata.cloud"
-        pinata_file_endpoint = "/pinning/pinFileToIPFS"
-        filename = _filepath.split("/")[-1:][0]
-        file_headers = {"pinata_api_key": os.getenv("PINATA_API_KEY"), "pinata_secret_api_key": os.getenv("PINATA_SECRET_API_KEY"),}
-        print(f"{file_headers}")
         response = requests.post(
-            pinata_base_url + pinata_file_endpoint,
+            pinata_base_url + pinata_file_endpoint  ,
             files={"file": (filename, image_binary)},
             headers=file_headers,
             )
