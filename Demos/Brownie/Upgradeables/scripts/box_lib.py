@@ -32,3 +32,45 @@ def encode_function_data(initializer=None, *args):
     if len(args) == 0 or not initializer:
         return eth_utils.to_bytes(hexstr="0x")
     return initializer.encode_input(*args)
+
+
+# Upgrade wrapper function that swaps out old implementation for new implementation
+# by taking the new implementation, proxy, an account, proxy_admin as parameters
+def upgrade(
+    _account,
+    _proxy,
+    _new_implementation_address,
+    _proxy_admin_contract=None,
+    _initializer=None,
+    *args,
+):
+    txn = None
+    if _proxy_admin_contract:
+        if _initializer:
+            encoded_function_call = encode_function_data(initializer, *args)
+            txn = _proxy_admin_contract.upgradeAndCall(
+                _proxy.address,
+                _new_implementation_address,
+                encoded_function_call,
+                {"from": _account},
+            )
+        else:
+            txn = _proxy_admin_contract.upgrade(
+                _proxy.address,
+                _new_implementation_address,
+                {"from": _account},
+            )
+    else:
+        if _initializer:
+            encoded_function_call = encode_function_data(initializer, *args)
+            txn = _proxy.upgradeToAndCall(
+                _new_implementation_address,
+                encoded_function_call,
+                {"from": _account},
+            )
+        else:
+            txn = _proxy_admin_contract.upgradeTo(
+                _new_implementation_address,
+                {"from": _account},
+            )
+    return txn
