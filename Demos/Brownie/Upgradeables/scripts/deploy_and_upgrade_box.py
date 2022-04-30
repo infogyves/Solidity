@@ -13,10 +13,10 @@ def deploy_and_upgrade_box():
     account = get_account()
     print(f"Deploying Box to {network.show_active()} network...")
     # Deploy the Box contract
-    box = Box.deploy({"from": account})
+    box = Box.deploy({"from": account}, publish_source=True)
     print(f"box.retrieve: {box.retrieve()}")
     # Deploy a proxy contract
-    proxy_admin = ProxyAdmin.deploy({"from": account})
+    proxy_admin = ProxyAdmin.deploy({"from": account}, publish_source=True)
     # Encode the initializer function!
     box_encoded_initializer_function = encode_function_data()
 
@@ -25,19 +25,20 @@ def deploy_and_upgrade_box():
         proxy_admin.address,
         box_encoded_initializer_function,
         {"from": account, "gas_limit": 1000000},
+        publish_source=True,
     )
     print(f"Proxy deployed to {transparent_proxy}")
     # Associating the proxy to the box:
     proxy_box = Contract.from_abi("Box", transparent_proxy.address, Box.abi)
     print(f"proxy_box.store: 255")
-    txn = proxy_box.store(255, {"from": account})
+    txn = proxy_box.store(255, {"from": account}, publish_source=True)
     txn.wait(1)
     print(f"proxy_box.retrieve: {proxy_box.retrieve()}")
     print("You can now upgrade to BoxV2!")
 
     # Now, deploy BoxV2 (the upgraded Box)
     print("Deploying BoxV2!")
-    box_v2 = BoxV2.deploy({"from": account})
+    box_v2 = BoxV2.deploy({"from": account}, publish_source=True)
     upgraded_txn = upgrade(
         account, transparent_proxy, box_v2.address, _proxy_admin_contract=proxy_admin
     )
@@ -47,7 +48,7 @@ def deploy_and_upgrade_box():
     print("Proxy upgraded!!!")
     print(f"proxy_box.retrieve: {proxy_box.retrieve()}")
     print("Calling proxy_box.increment: ")
-    inc_txn = proxy_box.increment({"from": account})
+    inc_txn = proxy_box.increment({"from": account}, publish_source=True)
     inc_txn.wait(1)
     print(f"proxy_box.retrieve: {proxy_box.retrieve()}")
 

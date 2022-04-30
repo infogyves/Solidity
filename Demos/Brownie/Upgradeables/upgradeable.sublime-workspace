@@ -1,0 +1,279 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tests/test_box_proxy.py",
+			"settings":
+			{
+				"buffer_size": 514,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					8,
+					1,
+					"substitute",
+					{
+						"region":
+						[
+							0,
+							459
+						],
+						"result": "from brownie import Box\nfrom scripts.box_lib import get_account, encode_function_data\n\n\ndef test_proxy_delegates_calls():\n    account = get_account()\n    box = Box.deploy({\"from\": account})\n    proxy_admin = ProxyAdmin.deploy({\"from\": account})\n    box_encoded_initializer_function = encode_function_data()\n    transparent_proxy = TransparentUpgradeableProxy.deploy(\n        box.address,\n        proxy_admin.address,\n        box_encoded_initializer_function,\n        {\"from\": account, \"gas_limit\": 1000000},\n    )\n"
+					},
+					"AQAAAAAAAAAAAAAAAgIAAAAAAADLAQAAZnJvbSBicm93bmllIGltcG9ydCBCb3gKZnJvbSBzY3JpcHRzLmJveF9saWIgaW1wb3J0IGdldF9hY2NvdW50LCBlbmNvZGVfZnVuY3Rpb25fZGF0YQoKZGVmIHRlc3RfcHJveHlfZGVsZWdhdGVzX2NhbGxzKCk6CglhY2NvdW50ID0gZ2V0X2FjY291bnQoKQoJYm94ID0gQm94LmRlcGxveSh7ImZyb20iOiBhY2NvdW50fSkKCXByb3h5X2FkbWluID0gUHJveHlBZG1pbi5kZXBsb3koeyJmcm9tIjogYWNjb3VudH0pCglib3hfZW5jb2RlZF9pbml0aWFsaXplcl9mdW5jdGlvbiA9IGVuY29kZV9mdW5jdGlvbl9kYXRhKCkKCXRyYW5zcGFyZW50X3Byb3h5ID0gVHJhbnNwYXJlbnRVcGdyYWRlYWJsZVByb3h5LmRlcGxveShib3guYWRkcmVzcywgcHJveHlfYWRtaW4uYWRkcmVzcywgYm94X2VuY29kZWRfaW5pdGlhbGl6ZXJfZnVuY3Rpb24sIHsiZnJvbSI6IGFjY291bnQsICJnYXNfbGltaXQiOiAxMDAwMDAwfSkK",
+					"AQAAAAAAAAABAAAAywEAAAAAAADLAQAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"formatter",
+				"Formatter: Beautify With Black"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sublime",
+				"Sublack: Format file"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in Panel"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 372.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/bala/Documents/Altfolio/GitHub/solidity/Demos/Brownie/Upgradeables",
+		"/Users/bala/Documents/Altfolio/GitHub/solidity/Demos/Brownie/Upgradeables/scripts",
+		"/Users/bala/Documents/Altfolio/GitHub/solidity/Demos/Brownie/Upgradeables/tests"
+	],
+	"file_history":
+	[
+		"/Users/bala/Documents/Altfolio/GitHub/solidity/Demos/Brownie/Upgradeables/scripts/deploy_and_upgrade_box.py",
+		"/Users/bala/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/Users/bala/Documents/Altfolio/GitHub/solidity/Demos/Brownie/Upgradeables"
+		}
+	],
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tests/test_box_proxy.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								507
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 354.0
+	},
+	"output.Terminus":
+	{
+		"height": 198.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 250.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

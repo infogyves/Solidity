@@ -6,7 +6,7 @@ compiler:
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.1.0'
 # Private Key for get_account()
 wallets:
-  from_key: {INFOGYVES_KEY}
+  priv_key: ${INFOGYVES_KEY}
 # Path to environment variables
 dotenv: .env
 # Addresses:
